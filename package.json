@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": ".runtime/node-v24.18.0-win-x64/node.exe apps/operations/server.ts",
-    "start": "node apps/operations/server.ts",
+    "start": "node --experimental-strip-types apps/operations/server.ts",
     "operations": ".runtime/node-v24.18.0-win-x64/node.exe apps/operations/server.ts",
     "operations:react": ".runtime/node-v24.18.0-win-x64/npm.cmd --prefix apps/operations-react run dev",
     "operations:react:build": ".runtime/node-v24.18.0-win-x64/npm.cmd --prefix apps/operations-react run build",
