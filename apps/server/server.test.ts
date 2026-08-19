@@ -1,0 +1,2 @@
+// @ts-nocheck — Node's http typings don't narrow server.address() after listen(); runtime values are correct
+import test from'node:test';import assert from'node:assert/strict';process.env.NODE_ENV='test';const{server}=await import('./server.ts');test('health uses sqlite',async()=>{await new Promise(r=>server.listen(0,'127.0.0.1',r));const{port}=server.address(),response=await fetch(`http://127.0.0.1:${port}/api/health`);assert.equal(response.status,200);assert.deepEqual(await response.json(),{status:'ok',database:'sqlite'});await new Promise(r=>server.close(r))});

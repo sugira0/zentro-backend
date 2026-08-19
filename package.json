@@ -1,0 +1,26 @@
+{
+  "name": "zentro-business-management",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": ".runtime/node-v24.18.0-win-x64/node.exe apps/operations/server.ts",
+    "start": "node apps/operations/server.ts",
+    "operations": ".runtime/node-v24.18.0-win-x64/node.exe apps/operations/server.ts",
+    "operations:react": ".runtime/node-v24.18.0-win-x64/npm.cmd --prefix apps/operations-react run dev",
+    "operations:react:build": ".runtime/node-v24.18.0-win-x64/npm.cmd --prefix apps/operations-react run build",
+    "test": ".runtime/node-v24.18.0-win-x64/node.exe --test apps/server/server.test.ts"
+  },
+  "engines": { "node": ">=22" },
+  "dependencies": {
+    "nodemailer": "^9.0.5",
+    "pg": "^8.13.3",
+    "@aws-sdk/client-s3": "^3.823.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.1.2",
+    "@types/nodemailer": "^8.0.1",
+    "@types/pg": "^8.11.13",
+    "typescript": "^5.7.3"
+  }
+}
