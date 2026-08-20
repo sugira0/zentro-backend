@@ -33,7 +33,9 @@ function normalise(row: Record<string, any>): Record<string, any> {
 }
 
 class Statement {
-  constructor(private pool: pg.Pool, private sql: string) {}
+  private pool: pg.Pool
+  private sql: string
+  constructor(pool: pg.Pool, sql: string) { this.pool = pool; this.sql = sql }
 
   private pgSql() { return toPostgres(this.sql) }
 
@@ -57,7 +59,8 @@ class Statement {
 }
 
 class TransactionDb {
-  constructor(private client: pg.PoolClient) {}
+  private client: pg.PoolClient
+  constructor(client: pg.PoolClient) { this.client = client }
 
   prepare(sql: string) {
     const client = this.client
